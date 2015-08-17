@@ -31,7 +31,6 @@ INDEX VERSION 1.127+K:\Project\Visa\.metadata\.plugins\org.eclipse.jdt.core
 1299766682.index
 4232502288.index
 3621233024.index
-142010102.index
 1543766311.index
 1832183969.index
 1109228428.index

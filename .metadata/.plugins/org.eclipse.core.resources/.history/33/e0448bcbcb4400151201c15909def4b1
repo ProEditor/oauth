@@ -1,0 +1,5 @@
+package oauth;
+
+public class MongoOAuth2AccessToken implements OAuth2AccessToken  {
+
+}

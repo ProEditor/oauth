@@ -18,7 +18,7 @@ public class MongoTokenStore implements TokenStore {
 	private final String dataBaseName = "OAuthDatabase";
 	private final BasicDAO<ClientDetails, String> basicDAO;
 
-	public MongoTokenStore() {
+	public MongoClientDetailsService() {
 		mongoClient = new MongoClient();
 		Morphia morphia = new Morphia();
 		basicDAO = new BasicDAO<ClientDetails, String>(ClientDetails.class,
