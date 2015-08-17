@@ -1,0 +1,34 @@
+package client;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.security.oauth2.config.annotation.builders.ClientDetailsServiceBuilder;
+import org.springframework.security.oauth2.config.annotation.builders.JdbcClientDetailsServiceBuilder;
+import org.springframework.security.oauth2.provider.ClientDetails;
+import org.springframework.security.oauth2.provider.ClientDetailsService;
+
+public class MongoClientDetailsServiceBuilder extends
+		ClientDetailsServiceBuilder<MongoClientDetailsServiceBuilder> {
+
+	private final List<ClientDetails> clientDetails;
+
+	public MongoClientDetailsServiceBuilder() {
+		clientDetails = new ArrayList<ClientDetails>();
+	}
+
+	@Override
+	protected void addClient(String clientId, ClientDetails build) {
+		clientDetails.add(build);
+	}
+
+	@Override
+	protected ClientDetailsService performBuild() {
+		MongoClientDetailsService service = new MongoClientDetailsService();
+		for (ClientDetails clientDetails : clientDetails) {
+			service.addClientDetails(clientDetails);
+		}
+		return service;
+
+	}
+}

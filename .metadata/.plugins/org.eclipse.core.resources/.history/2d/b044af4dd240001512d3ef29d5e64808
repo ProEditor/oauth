@@ -1,0 +1,20 @@
+package client;
+
+import org.springframework.security.oauth2.config.annotation.builders.ClientDetailsServiceBuilder;
+import org.springframework.security.oauth2.config.annotation.builders.JdbcClientDetailsServiceBuilder;
+import org.springframework.security.oauth2.provider.ClientDetails;
+import org.springframework.security.oauth2.provider.ClientDetailsService;
+
+public class MongoClientDetailsServiceBuilder extends
+		ClientDetailsServiceBuilder<MongoClientDetailsServiceBuilder> {
+
+	@Override
+	protected void addClient(String clientId, ClientDetails build) {
+
+	}
+
+	@Override
+	protected ClientDetailsService performBuild() {
+
+	}
+}

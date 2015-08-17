@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.mongodb.client.MongoCollection"/>
+<fullyQualifiedTypeName name="com.mongodb.client.model.Filters"/>
+<fullyQualifiedTypeName name="org.bson.conversions.Bson"/>
+<fullyQualifiedTypeName name="com.mongodb.client.FindIterable"/>
+<fullyQualifiedTypeName name="org.bson.BsonDocument"/>
+<fullyQualifiedTypeName name="org.mongodb.morphia.dao.BasicDAO"/>
+<fullyQualifiedTypeName name="client.MongoClientDetails"/>
+<fullyQualifiedTypeName name="org.mongodb.morphia.Morphia"/>
+<fullyQualifiedTypeName name="org.mongodb.morphia.annotations.Entity"/>
+<fullyQualifiedTypeName name="org.bson.types.ObjectId"/>
+<fullyQualifiedTypeName name="org.mongodb.morphia.annotations.Id"/>
+<fullyQualifiedTypeName name="org.mongodb.morphia.query.Query"/>
+<fullyQualifiedTypeName name="org.springframework.security.oauth2.provider.ClientDetails"/>
+<fullyQualifiedTypeName name="org.springframework.security.oauth2.provider.ClientDetailsService"/>
+<fullyQualifiedTypeName name="org.springframework.security.oauth2.config.annotation.builders.ClientDetailsServiceBuilder"/>
+<fullyQualifiedTypeName name="java.lang.Override"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="client.MongoClientDetailsService"/>
+<fullyQualifiedTypeName name="client.MongoClientDetailsServiceBuilder"/>
+<fullyQualifiedTypeName name="org.springframework.security.oauth2.provider.token.TokenStore"/>
+</qualifiedTypeNameHistroy>

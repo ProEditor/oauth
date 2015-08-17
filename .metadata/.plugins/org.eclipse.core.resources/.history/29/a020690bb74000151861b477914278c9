@@ -1,0 +1,81 @@
+package client;
+
+import java.util.List;
+
+import org.bson.BsonDocument;
+import org.bson.Document;
+import org.bson.conversions.Bson;
+import org.springframework.security.oauth2.provider.ClientAlreadyExistsException;
+import org.springframework.security.oauth2.provider.ClientDetails;
+import org.springframework.security.oauth2.provider.ClientDetailsService;
+import org.springframework.security.oauth2.provider.ClientRegistrationException;
+import org.springframework.security.oauth2.provider.ClientRegistrationService;
+import org.springframework.security.oauth2.provider.NoSuchClientException;
+
+import com.mongodb.*;
+import com.mongodb.client.FindIterable;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.model.Filters;
+
+public class MongoClientDetailsService implements ClientDetailsService,
+		ClientRegistrationService {
+
+	private final MongoClient mongoClient;
+	private final String collectionName = "ClientDetails";
+	private final String dataBaseName = "OAuthDatabase";
+	private final MongoDatabase mongoDatabase;
+	private final MongoCollection<ClientDetails> mongoCollection;
+
+	MongoClientDetailsService() {
+		mongoClient = new MongoClient();
+		mongoDatabase = mongoClient.getDatabase(dataBaseName);
+		mongoCollection = mongoDatabase.getCollection(collectionName,
+				ClientDetails.class);
+	}
+
+	@Override
+	public ClientDetails loadClientByClientId(String clientId)
+			throws ClientRegistrationException {
+		Bson filter = Filters.eq("clientId", clientId);
+		FindIterable<ClientDetails> clientDetails = mongoCollection
+				.find(filter);
+		return clientDetails.first();
+	}
+
+	@Override
+	public void addClientDetails(ClientDetails clientDetails)
+			throws ClientAlreadyExistsException {
+		mongoCollection.insertOne(clientDetails);
+	}
+
+	@Override
+	public void updateClientDetails(ClientDetails clientDetails)
+			throws NoSuchClientException {
+		BsonDocument document=new BsonDocument();
+	 
+		document.toBsonDocument(documentClass, codecRegistry)
+		mongoCollection.updateOne(null, clientDetails);
+	}
+
+	@Override
+	public void updateClientSecret(String clientId, String secret)
+			throws NoSuchClientException {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void removeClientDetails(String clientId)
+			throws NoSuchClientException {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public List<ClientDetails> listClientDetails() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
